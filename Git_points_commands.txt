@@ -35,4 +35,4 @@
 35-git branch -D <branch_name>-to delete the merged and unmerged branch.This will command not show any error.
 36-git merge <name_of branch_to be merged>-go in the branch where you want to merge and write the command git merge <name_of branch_to be merged>
 37-push an existing repository from the command line
-git remote add origin https://github.com/raghav1989/myGitPracticeDemo.git
+git remote add origin https://github.com/raghav1989/myGitPracticeDemo.git(This url is generated when you create a new repository by going into the git hub website where the repository is hosted).
