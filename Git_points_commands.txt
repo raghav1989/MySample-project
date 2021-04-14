@@ -1,0 +1,36 @@
+1-To increase the size of font (Zoom)in git terminal-->cntrl+
+2-git config --list-->To see the list of the configured variants like email n name
+3-git config --global user.name "Rkumar"-->To set name,email in git list
+4-git config user.name-->To see the name in git terminal
+5-git init-Create an empty Git repository or reinitialize an existing one
+6-git status-Show the working tree status ie-to track whether the code has been staged or has been commiitted.
+7-git add --a-->add changes from all tracked and untracked files to staging area
+8-git commit -m "<Message_name>"-->Record changes to the repository ie. push the changed code or commit the code to the repository.
+9-git log-->show commit logs
+10-rm -rf .git-->To delete the content of a folder or repository and unitialize a git repository.
+11-git clone-->Clone a repository into a new directory
+12-touch <filename>-->To create a file
+13-git diff-->To see the difference between working directory and staging area
+14-.gitignore-->inculdes the file to be ignored.
+15-git diff --staged-->It compares the difference between the previous commit and present satged area.
+16-git commit -a -m "<comment>"-->To add the tracked files and staged files skiing the staging area
+17-git rm --cached <filename>--Remove files from the working tree and from the index
+18-git mv <Original_filename> <Renamed_filename>--Move or rename a file, a directory, or a symlink
+19-git log -p--To see all the last detaled commit
+20-git log -p -n-->To see the last n number of commits.
+21-git commit -amend-->To make changes in the previous commit
+22-to work in vm command line-->Always press I to edit,then press ESC,shift : and wq
+23-git checkout -- <file>...>" to discard changes in working directory
+24-git reset HEAD <file>..." to unstage
+25-git push - origin <branch_name>-->To push the content in the remote repository
+26-git config --global alias.<alias_name> '<command_name..commit or push or pull..any command>'-->To give the alias name to git commands
+27-git checkout -b <branch_name>-To switch to new branch for making the changes
+28-git checkout <branch_name>--to switch to existing branch for making or seeing the chnages
+29-git branch--to see the branch list(the highlighted green branch with star mark * shows that the developer is using the current branch).
+30->>>>>->conflict resolution markers
+31-git branch -v---to see the list of branches along with the last commit messages
+32-git branch --merged-to see the branch you are in along with the list of branches merged.
+33-git branch --no --merged--to see the branch you are in along with the list of branches not merged.
+34-git branch -d <branch_name>-to delete the merged branch but it will give error if the branch is not merged.
+35-git branch -D <branch_name>-to delete the merged and unmerged branch.This will command not show any error.
+36-git merge <name_of branch_to be merged>-go in the branch where you want to merge and write the command git merge <name_of branch_to be merged>
