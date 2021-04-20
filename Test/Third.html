@@ -1,0 +1,958 @@
+<html>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/variable-pie.js"></script>
+
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--<script src="C:\Users\pshinde\Desktop\vertika's Task\css\bootstrap.min.css"></script>-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.6.3/css/all.css'
+    integrity='sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/' crossorigin='anonymous'>
+  <!--for faas chart line icon of management -->
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/highcharts-more.js"></script>
+  <script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+  <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+  <script> zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
+    ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];</script>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <script type = "text/javascript" src = "https://www.gstatic.com/charts/loader.js">
+  </script>
+  <script type = "text/javascript">
+     google.charts.load('current', {packages: ['corechart']});     
+  </script>
+
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+</head>
+<style>
+  .panel-default {
+    margin-left: 50px;
+    width: 1620px;
+    ;
+    height: 540px;
+    border: 1px solid gray !important;
+    margin-top: 10px;
+  }
+
+  .p1 {
+    color: grey;
+    font-size: 23px;
+
+    font-family: vertika;
+
+  }
+
+  .p2 {
+    color: white;
+    font-size: 23px;
+
+    font-family: vertika;
+
+  }
+
+  .form-control {
+    margin: 20px 20px 20px 20px;
+    display: block;
+    width: 450px;
+    height: 400px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  }
+
+  .form-control1 {
+    display: block;
+    width: 330px;
+    height: 110px;
+    padding: 6px 15px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .1);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  }
+
+  .para {
+    border: 2px solid black;
+    font-size: 20px;
+    font-weight: 20%;
+    color: gray
+  }
+
+  .navbarc {
+    padding-top: 35px;
+  }
+
+  a {
+    color: white;
+
+  }
+
+  .pie {
+    padding-left: 0px !important;
+
+  }
+
+  .sidenav {
+
+    height: 100%;
+    width: 125px !important;
+    ;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #004466;
+
+    padding-top: 40px;
+  }
+
+  .sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    color: white;
+    display: block;
+  }
+
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+
+  @media screen and (max-height: 1366px) {
+    .sidenav {
+      padding-top: 15px;
+    }
+
+    .sidenav a {
+      font-size: 18px;
+    }
+  }
+
+  .main {
+    margin-left: 200px;
+    ;
+    /* Same as the width of the sidenav */
+    align: center;
+
+    padding: 0px 10px;
+
+  }
+
+  .highcharts-credits {
+    display: none;
+  }
+
+  .glyphicon-check {
+    color: gray;
+    cursor: pointer;
+  }
+
+  .glyphicon-unchecked {
+    color: gray;
+    cursor: pointer;
+  }
+
+  .square {
+    float: left;
+    margin: 1pt;
+    width: 72pt;
+    height: 72pt;
+  }
+
+  #container {
+    margin: 0 auto;
+    max-width: 400px;
+    min-width: 380px;
+  }
+
+  .centerwrapper {
+    margin: auto;
+    width: 302pt;
+  }
+
+  .list-group-item {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+
+    background-color: #fff;
+    border: none !important;
+  }
+
+  .circle-icon {
+    float: left;
+    background: rgb(207, 207, 207, 0.4);
+    padding: 17px;
+    border-radius: 50%;
+    border: 1 px solid grey !important;
+  }
+
+
+
+  /* The container3 */
+  
+
+  /* Hide the browser's default radio button */
+  .container3 input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  /* Create a custom radio button */
+  .checkmark {
+    position: absolute;
+    top: 7px;
+
+
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+  }
+
+  /* On mouse-over, add a grey background color */
+  .container3:hover input~.checkmark {
+    background-color: #ccc;
+
+  }
+
+  /* When the radio button is checked, add a blue background */
+  .container3 input:checked~.checkmark {
+    background-color: #2196F3;
+
+  }
+
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+
+  }
+
+  /* Show the indicator (dot/circle) when checked */
+  .container3 input:checked~.checkmark:after {
+    display: block;
+
+  }
+
+  /* Style the indicator (dot/circle) */
+  .container3 .checkmark:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+  }
+
+  #reportcss {
+    margin-top: 20px;
+
+  }
+
+  #t1 {
+    font-size: 10px;
+    font-weight: 600;
+    color: darkgrey;
+  }
+
+  #t2 {
+    padding-top: 15px;
+  }
+
+  #t3 {
+    padding-top: 15px;
+  }
+
+  .zc-ref {
+    display: none;
+  }
+</style>
+
+<body>
+  <!-- <div class="sidenav">
+
+    <a href="#"><i class="glyphicon glyphicon-th-list" style="font-size: 30px; padding-left: 20px;"></i> </a>
+    <div class="navbarc">
+      <a href="#"><i class="glyphicon glyphicon-home"
+          style="font-size: 30px; text-align:center; padding-left: 20px;"></i><br> <span
+          style="font-size: 13px;padding-left: 18px;">HOME</span></a><br>
+      <a href="#"><i class="glyphicon glyphicon-edit" style="font-size: 30px; padding-left: 20px;"></i> <br> <span
+          style="font-size: 13px;padding-left: 18px;">ALERTS</span></a><br>
+      <a href="#"><i class="glyphicon glyphicon-book" style="font-size: 30px; padding-left: 20px;"></i><br> <span
+          style="font-size: 13px;padding-left: 18px;">ALERT</span> <br><span
+          style="font-size: 15px;padding-left: 18px;">DETAILS</span></a><br>
+      <a href="#"><i class="glyphicon glyphicon-circle-arrow-right"
+          style="font-size: 30px; padding-left: 20px;"></i><br> <span style="font-size: 13px;padding-left: 18px;">
+          INDICATOR</span></a><br><br>
+      <a href="#"><i class="fa fa-bar-chart" style="font-size: 30px; padding-left: 20px;"></i><br> <span
+          style="font-size: 13px;padding-left: 18px;">CHARTS</span></a><br>
+      <a href="#"><i class="glyphicon glyphicon-file" style="font-size: 30px;padding-left: 20px;"></i><br> <span
+          style="font-size: 13px;padding-left: 18px;">REPORTS</span></a><br>
+      <a href="#"><i class="glyphicon glyphicon-wrench" style="font-size: 30px;padding-left: 20px;"></i><br> <span
+          style="font-size: 13px;padding-left: 18px;">CONFIGURE</span></a><br>
+      <a href="#"><i class="glyphicon glyphicon-th-large" style="font-size: 30px;padding-left: 20px;"></i><br> <span
+          style="font-size: 13px;padding-left: 18px;">SETUP</span></a><br>
+      <a href="#"><i class="fas fa-sitemap" style="font-size: 30px;padding-left: 20px;"></i> <br> <span
+          style="font-size: 13px;padding-left: 18px;">SUPPORT</span></a><br><br>
+
+    </div>
+  </div> -->
+
+  <div class="container-fluid" style="background-color:grey;width: 100%;
+    height: 100%;">
+    <div class="row">
+
+      <div class="col-lg-12" style="margin-top: 25px;">
+
+        <div class="col-lg-9" style="background-color:white;">
+
+          <div class="col-lg-12">
+
+            <div class="col-lg-2" style="margin-top: 15px;">
+              <span style="font-size: xx-large;color: slategrey;">Alerts</span><sup
+                style="vertical-align: super;font-size:15px;">
+                <span class="glyphicon glyphicon-question-sign" style="color: darkgray;"></span></sup>
+            </div>
+            <div class="col-lg-8">
+              <table style="width:100%; margin-block-start: 10px;">
+
+                <tr>
+                  <td>
+                    <h6 style="font-weight: 700;
+                     color: darkgrey;
+                     font-size: 13px;"> Show</h6>
+
+                  </td>
+                  <td>
+                    <div class="form-check form-check-inline" style="padding-left: 10px;">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                      <label class="form-check-label" for="inlineCheckbox1"><span style="font-size: 14px;
+                              font-weight: lighter;">New Alerts</span></label>
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option2"
+                        style="margin-left: 20px;">
+                      <label class="form-check-label" for="inlineCheckbox1"><span style="font-size: 14px;
+                              font-weight: lighter;">Closed Alerts</span></label>
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option3"
+                        style="margin-left: 20px;">
+                      <label class="form-check-label" for="inlineCheckbox1"><span style="font-size: 14px;
+                              font-weight: lighter;">Dismissed Alerts</span></label>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <h6 style="font-weight: 700;
+                      color: darkgrey;
+                      font-size: 13px;"> View</h6>
+                  <td>
+                    <div class="form-check form-check-inline" style="padding-left: 10px;">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                        value="option1">
+                      <label class="form-check-label" for="inlineRadio1"><span id="t1">All</span></label>
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                        value="option2" style="margin-left: 20px;">
+                      <label class="form-check-label" for="inlineRadio1"><span id="t1">operational
+                          Performance</span></label>
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                        value="option3" style="margin-left: 20px;">
+                      <label class="form-check-label" for="inlineRadio1"><span id="t1">Liquidity</span></label>
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                        value="option4" style="margin-left: 20px;">
+                      <label class="form-check-label" for="inlineRadio1"><span id="t1">Effectiveness</span></label>
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                        value="option5" style="margin-left: 20px;">
+                      <label class="form-check-label" for="inlineRadio1"><span id="t1">Profitability</span></label>
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                        value="option6" style="margin-left: 20px;">
+                      <label class="form-check-label" for="inlineRadio1"><span id="t1">Financial Strength</span></label>
+                    </div>
+                  </td>
+
+                </tr>
+
+              </table>
+            </div>
+            <div class="col-lg-2" style="margin-top: 10px;font-size: smaller;">
+              <div class="search-container">
+
+                <input type="text" placeholder="Search.." name="search">
+                <i class="fa fa-search" style="font-weight: 900;
+                  color: grey;
+                  font-size: 15px;"></i>
+
+
+
+
+
+
+              </div>
+            </div>
+          </div>
+          <hr
+            style="margin-right: 15px;margin-bottom: 10px;border: 1px solid darkgrey;margin-top: 100px;margin-left: 25px;">
+
+          <nav aria-label="Page navigation example" style="padding-left: 22px;">
+            <ul class="pagination">
+              <li class="page-item"><a class="page-link" href="#"><input type="checkbox" name="bx1" value="bx"> <i
+                    class="fa fa-caret-down" style="color: black;font-size: 10px;"></i></a></li>
+              <li class="page-item"><a class="page-link" href="#" style="color:black;">CLOSED</a></li>
+              <li class="page-item"><a class="page-link" href="#" style="color:black;">DISMISSED</a></li>
+
+            </ul>
+          </nav>
+          <div class="col-lg-12">
+            <table class="table table-dark" style="border: 1px solid darkgray;">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                  <th scope="col">ID</th>
+                  <th scope="col">Category</th>
+                  <th scope="col">Score</th>
+                  <th scope="col">Scenario</th>
+                  <th scope="col">Trend</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th id="t2" scope="row"><span class="glyphicon glyphicon-chevron-down"
+                      style="font-size: small;font-weight: 400;color: lightslategray;"></span></th>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;"><input type="checkbox"></td>
+                  <td>
+                    <h6>OP-3</h6>
+                  </td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;">Financial Strength</td>
+                  <td>
+                    <nav aria-label="Page navigation example" style="margin-top: -25px;">
+                      <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#"
+                            style="background-color: red;color: white;">16</a></li>
+                        <li class="page-item"><a class="page-link" href="#" style="color:black;"><span
+                              class="pull-bottom glyphicon glyphicon-arrow-right"></span></a></li>
+                      </ul>
+                    </nav>
+                  </td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;">Increase in debt</td>
+                  <td>
+                    <h6>Graph</h6>
+                  </td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;">New</td>
+                </tr>
+
+
+                <!-- <tr>
+                      <th scope="row"></th>
+                      <td></td>
+                      <td>This scenario indicates a company is increasingly financing through debt leading to high risk of default </td>
+                       <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td> 
+                    </tr> -->
+
+                <tr>
+                  <th id="t2" scope="row"><span class="glyphicon glyphicon-chevron-down"
+                      style="font-size: small;font-weight: 400;color: lightslategray;"></span></th>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;"><input type="checkbox"></td>
+                  <td>
+                    <h6>OP-3</h6>
+                  </td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;">Financial Strength</td>
+                  <td>
+                    <nav aria-label="Page navigation example" style="margin-top: -25px;">
+                      <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#"
+                            style="background-color:orange;color: white;">16</a></li>
+                        <li class="page-item"><a class="page-link" href="#" style="color:black;"><span
+                              class="pull-bottom glyphicon glyphicon-arrow-right"></span></a></li>
+                      </ul>
+                    </nav>
+                  </td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;">Increase in debt</td>
+                  <td>
+                    <h6>Graph</h6>
+                  </td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;">New</td>
+                </tr>
+                <tr>
+                  <th id="t2" scope="row"><span class="glyphicon glyphicon-chevron-down"
+                      style="font-size: small;font-weight: 400;color: lightslategray;"></span></th>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;"><input type="checkbox"></td>
+                  <td>
+                    <h6>OP-3</h6>
+                  </td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;">Financial Strength</td>
+                  <td>
+                    <nav aria-label="Page navigation example" style="margin-top: -25px;">
+                      <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#"
+                            style="background-color:orange;color: white;">16</a></li>
+                        <li class="page-item"><a class="page-link" href="#" style="color:black;"><span
+                              class="pull-bottom glyphicon glyphicon-arrow-right"></span></a></li>
+                      </ul>
+                    </nav>
+                  </td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;">Return on Assets</td>
+                  <td>
+                    <h6>Graph</h6>
+                  </td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;">New</td>
+                </tr>
+
+                <tr>
+                  <th id="t2" scope="row"><span class="glyphicon glyphicon-chevron-down"
+                      style="font-size: small;font-weight: 400;color: lightslategray;"></span></th>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;"><input type="checkbox"></td>
+                  <td>
+                    <h6>OP-3</h6>
+                  </td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;">Profitability</td>
+                  <td>
+                    <nav aria-label="Page navigation example" style="margin-top: -25px;">
+                      <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#"
+                            style="background-color:orange;color: white;">16</a></li>
+                        <li class="page-item"><a class="page-link" href="#" style="color:black;"><span
+                              class="pull-bottom glyphicon glyphicon-arrow-right"></span></a></li>
+                      </ul>
+                    </nav>
+                  </td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;">Diminishing ROIC</td>
+                  <td>
+                    <h6>Graph</h6>
+                  </td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;">New</td>
+                </tr>
+
+                <tr>
+                  <th id="t2" scope="row"><span class="glyphicon glyphicon-chevron-down"
+                      style="font-size: small;font-weight: 400;color: lightslategray;"></span></th>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;"><input type="checkbox"></td>
+                  <td>
+                    <h6>OP-3</h6>
+                  </td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;">Profitability</td>
+                  <td>
+                    <nav aria-label="Page navigation example" style="margin-top: -25px;">
+                      <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#"
+                            style="background-color:skyblue;color: white;">16</a></li>
+                        <li class="page-item"><a class="page-link" href="#" style="color:black;"><span
+                              class="pull-bottom glyphicon glyphicon-arrow-right"></span></a></li>
+                      </ul>
+                    </nav>
+                  </td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;">Fall in Reserve for Dividend </td>
+                  <td>Graph</td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;">New</td>
+                </tr>
+
+                <tr>
+                  <th id="t2" scope="row"><span class="glyphicon glyphicon-chevron-down"
+                      style="font-size: small;font-weight: 400;color: lightslategray;"></span></th>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;"><input type="checkbox"></td>
+                  <td>
+                    <h6>OP-3</h6>
+                  </td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;">Effectiveness</td>
+                  <td>
+                    <nav aria-label="Page navigation example" style="margin-top: -25px;">
+                      <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#"
+                            style="background-color:skyblue;color: white;">16</a></li>
+                        <li class="page-item"><a class="page-link" href="#" style="color:black;"><span
+                              class="pull-bottom glyphicon glyphicon-arrow-right"></span></a></li>
+                      </ul>
+                    </nav>
+                  </td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;">Unfavorable Net Margin</td>
+                  <td>
+                    <h6>Graph</h6>
+                  </td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;">New</td>
+                </tr>
+
+                <tr>
+                  <th id="t2" scope="row"><span class="glyphicon glyphicon-chevron-down"
+                      style="font-size: small;font-weight: 400;color: lightslategray;"></span></th>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;"><input type="checkbox"></td>
+                  <td>
+                    <h6>OP-3</h6>
+                  </td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;"> Effectiveness</td>
+                  <td>
+                    <nav aria-label="Page navigation example" style="margin-top: -25px;">
+                      <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#"
+                            style="background-color:lightgreen;color: white;">16</a></li>
+                        <li class="page-item"><a class="page-link" href="#" style="color:black;"><span
+                              class="pull-bottom glyphicon glyphicon-arrow-right"></span></a></li>
+                      </ul>
+                    </nav>
+                  </td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;">Increase in debt</td>
+                  <td>
+                    <h6>Graph</h6>
+                  </td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;">New</td>
+                </tr>
+
+
+                <tr>
+                  <th id="t2" scope="row"><span class="glyphicon glyphicon-chevron-down"
+                      style="font-size: small;font-weight: 400;color: lightslategray;"></span></th>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;"><input type="checkbox"></td>
+                  <td>
+                    <h6>OP-3</h6>
+                  </td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;">Operating Performance</td>
+                  <td>
+                    <nav aria-label="Page navigation example" style="margin-top: -25px;">
+                      <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#"
+                            style="background-color:lightgreen;color: white;">16</a></li>
+                        <li class="page-item"><a class="page-link" href="#" style="color:black;"><span
+                              class="pull-bottom glyphicon glyphicon-arrow-right"></span></a></li>
+                      </ul>
+                    </nav>
+                  </td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;">Diminishing ROIC</td>
+                  <td>
+                    <h6>Graph</h6>
+                  </td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;">New</td>
+                </tr>
+
+                <tr>
+                  <th id="t2" scope="row"><span class="glyphicon glyphicon-chevron-down"
+                      style="font-size: small;font-weight: 400;color: lightslategray;"></span></th>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;"><input type="checkbox"></td>
+                  <td>
+                    <h6>OP-3</h6>
+                  </td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;"> Effectiveness</td>
+                  <td>
+                    <nav aria-label="Page navigation example" style="margin-top: -25px;">
+                      <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#"
+                            style="background-color:orangered;color: white;">16</a></li>
+                        <li class="page-item"><a class="page-link" href="#" style="color:black;"><span
+                              class="pull-bottom glyphicon glyphicon-arrow-right"></span></a></li>
+                      </ul>
+                    </nav>
+                  </td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;">Return on Assets</td>
+                  <td>
+                    <h6>Graph</h6>
+                  </td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;">New</td>
+                </tr>
+
+                <tr>
+                  <th id="t2" scope="row"><span class="glyphicon glyphicon-chevron-down"
+                      style="font-size: small;font-weight: 400;color: lightslategray;"></span></th>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;"><input type="checkbox"></td>
+                  <td>
+                    <h6>OP-3</h6>
+                  </td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;">Liquidity</td>
+                  <td>
+                    <nav aria-label="Page navigation example" style="margin-top: -25px;">
+                      <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#"
+                            style="background-color:orangered;color: white;">16</a></li>
+                        <li class="page-item"><a class="page-link" href="#" style="color:black;"><span
+                              class="pull-bottom glyphicon glyphicon-arrow-right"></span></a></li>
+                      </ul>
+                    </nav>
+                  </td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;">Diminishing Revenues </td>
+                  <td>Graph</td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;">New</td>
+                </tr>
+
+                <tr>
+                  <th id="t2" scope="row"><span class="glyphicon glyphicon-chevron-down"
+                      style="font-size: small;font-weight: 400;color: lightslategray;"></span></th>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;"><input type="checkbox"></td>
+                  <td>
+                    <h6>OP-3</h6>
+                  </td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;">Financial Strength</td>
+                  <td>
+                    <nav aria-label="Page navigation example" style="margin-top: -25px;">
+                      <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#"
+                            style="background-color:skyblue;color: white;">16</a></li>
+                        <li class="page-item"><a class="page-link" href="#" style="color:black;"><span
+                              class="pull-bottom glyphicon glyphicon-arrow-right"></span></a></li>
+                      </ul>
+                    </nav>
+                  </td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;">Heavy Capital Expenditure </td>
+                  <td>
+                    <h6>Graph</h6>
+                  </td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;">New</td>
+                </tr>
+
+                <tr>
+                  <th id="t2" scope="row"><span class="glyphicon glyphicon-chevron-down"
+                      style="font-size: small;font-weight: 400;color: lightslategray;"></span></th>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;"><input type="checkbox"></td>
+                  <td>
+                    <h6>OP-3</h6>
+                  </td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;">Financial Strength</td>
+                  <td>
+                    <nav aria-label="Page navigation example" style="margin-top: -25px;">
+                      <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#"
+                            style="background-color:lightgreen;color: white;">16</a></li>
+                        <li class="page-item"><a class="page-link" href="#" style="color:black;"><span
+                              class="pull-bottom glyphicon glyphicon-arrow-right"></span></a></li>
+                      </ul>
+                    </nav>
+                  </td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;">Fall in Receivable Turnover</td>
+                  <td>Graph</td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;">New</td>
+                </tr>
+
+                <tr>
+                  <th id="t2" scope="row"><span class="glyphicon glyphicon-chevron-down"
+                      style="font-size: small;font-weight: 400;color: lightslategray;"></span></th>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;"><input type="checkbox"></td>
+                  <td>
+                    <h6>OP-3</h6>
+                  </td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;"> Profitability</td>
+                  <td>
+                    <nav aria-label="Page navigation example" style="margin-top: -25px;">
+                      <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#"
+                            style="background-color:orangered;color: white;">16</a></li>
+                        <li class="page-item"><a class="page-link" href="#" style="color:black;"><span
+                              class="pull-bottom glyphicon glyphicon-arrow-right"></span></a></li>
+                      </ul>
+                    </nav>
+                  </td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;">R&D to Sales Analysis</td>
+                  <td>
+                    <h6>Graph</h6>
+                  </td>
+                  <td style=" padding-top: 15px;font-size: smaller;font-weight: 500;">New</td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+
+        <div class="col-lg-3" style="background-color:lightgrey">
+          <div class="col-lg-12"><span class="pull-right" style="background-color: white;margin-right: -30px;"><i
+                class='fa fa-angle-up' style="color: darkgrey;font-size: larger"></i>
+              <i class="glyphicon glyphicon-wrench" style="font-size: larger;padding-left: 20px;color: darkgrey;"></i>
+              <i class="glyphicon glyphicon-remove-sign"
+                style="font-size: larger;padding-left: 15px;color: darkgrey;padding-top: 15px;"></i></span>
+          </div>
+          <div class="col-lg-12">
+            <h5 style="text-align: center;color:black">OP-3</h5>
+            <h3 style="text-align: center;color:grey;padding-top:-5px;margin-top: auto;font-weight: 500;">Increase in
+              Debt</h3>
+            <!-- <div > -->
+            <div id='myChart'>
+              <a class="zc-ref" href="https://www.zingchart.com/"></a>
+            </div>
+            <script>
+              zingchart.THEME = "classic";
+
+              var myConfig = {
+                "layout": "h",
+                "globals": {
+                  "font-family": "Roboto"
+                },
+                "graphset": [
+                  {
+                    "type": "pie",
+                    "background-color": "lightgrey",
+                    "legend": {
+                      "background-color": "none",
+                      "border-width": 0,
+                      "shadow": false,
+                      "layout": "float",
+                      "margin": "auto auto 16% auto",
+                      "marker": {
+                        "border-radius": 3,
+                        "border-width": 0
+                      },
+                      "item": {
+                        "color": "%backgroundcolor"
+                      }
+                    },
+
+                    "plotarea": {
+                      // "background-color":"#FFFFFF",
+                      "border-color": "#DFE1E3",
+                      "border-width": 0,
+                      "border-radius": 0,
+                      "margin": "95% 5%"
+                    },
+                    "labels": [
+                      {
+                        "x": "45%",
+                        "y": "47%",
+                        "width": "10%",
+                        "text": "16",
+                        "font-size": 24
+                      }
+                    ],
+                    "plot": {
+                      "size": 100,
+                      "slice": 80,
+                      "margin-right": 100,
+                      "border-width": 0,
+                      "shadow": 0,
+                      "value-box": {
+                        "visible": false
+                      },
+                      "tooltip": {
+                        // "text":"%v TB",
+                        "shadow": false,
+                        "border-radius": 3
+                      }
+                    },
+                    "series": [
+                      {
+                        "values": [120],
+                        "text": "CURRENT PERIOD",
+                        "background-color": "black"
+                      },
+                      {
+                        "values": [120],
+                        "text": "REFERENCE PERIOD",
+                        "background-color": "skyblue"
+                      },
+
+                    ]
+                  }
+
+
+
+
+
+
+                ]
+              };
+
+              zingchart.render({
+                id: 'myChart',
+                data: myConfig,
+              });
+            </script>
+            <!-- </div> -->
+            <div>
+              <p style="text-align: center;font-weight: 900; color: lightslategrey;">If a company has to resort to
+                raising funds or using reserves to pay dividends to their shareholders, it is a sign of distress
+              </p>
+            </div>
+            <div id="chartContainer" style="height: 270px; width: 100%;background-color: lightgrey"></div>
+            <script>
+                window.onload = function () {
+                  
+                var chart = new CanvasJS.Chart("chartContainer", {
+                  animationEnabled:true,
+                  
+                  title:{
+                    text:"Open Alerts By Category"
+                  },
+                  
+                  
+                  data: [{
+                    type: "bar",
+                    name: "companies",
+                  //	axisYType: "secondary",
+                    color: "skyblue",
+                        indexLabel: "{y}",
+                    dataPoints: [
+                      { y: 2, label: "Liquidity" },
+                      { y: 1, label: "Profitability" },
+                      { y: 4, label: "Financial Strength" },
+                      { y: 2, label: "Effectiveness" },
+                      { y: 6, label: "Oper Performance" },
+                      
+                    ]
+                  }]
+                });
+                chart.render();
+                
+                }
+                </script>
+          </div>
+         
+
+
+
+
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
