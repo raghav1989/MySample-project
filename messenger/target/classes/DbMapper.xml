@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="org.peli.RestPro.messenger.DatabaseMapper">
+ <resultMap type = "MSGDB" id = "result" >     
+<id property="msgdb_id" column="MSGDB_ID"/>   
+<result property="queue_id" column="QUEUEID"/>     
+<result property="message_no" column="MESSAGENO"/>   
+<result property="messageclass_type" column="MESSAGECLASSTYPE"/>        
+<result property="status" column="STATUS"/>        
+<result property="input_date" column="INPUTDATE"/>  
+<result property="input_time" column="INPUTTIME"/>       
+ <result property="currentqueuein_date" column="CURRQUEUEINDATE"/>        
+<result property="currentqueuein_time" column="CURRQUEUEINTIME"/>        
+<result property="prevqueuein_date" column="PREVQUEUEINDATE"/>  
+ </resultMap>
+
+ <select id = "getAll" resultMap = "result">
+   SELECT * FROM MSGDB; 
+</select>
+
+ <select id = "getById" parameterType = "int" resultType="MSGDB" resultMap = "result">
+   SELECT * FROM MSGDB WHERE MSGDB_ID = #{msgdb_id};
+</select>
+ 
+ </mapper>
