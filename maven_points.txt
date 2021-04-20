@@ -1,0 +1,9 @@
+-->Maven is a build tool.
+Why maven ?
+1-Multiple jars
+2-Dependencies and versions
+3-Project structure
+4-Building,publishing and deploying
+----------------
+-->Prerequistites for settings:
+Follow the link of this tutorial:https://www.tutorialspoint.com/maven/maven_environment_setup.htm
